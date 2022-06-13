@@ -1,0 +1,13 @@
+.navLink {
+  text-decoration: none;
+  color: black;
+}
+
+.navLink + .navLink {
+  margin-left: 15px;
+}
+
+.activeNavLink {
+  composes: navLink;
+  color: rgb(254, 53, 100);
+}
