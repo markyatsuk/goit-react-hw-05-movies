@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.poster {
+  width: 250px;
+  display: block;
+}
+
+.currentFilmBlock {
+  display: flex;
+}
+
+.container {
+  padding: 50px 50px;
+}
+
+.infoBlock {
+  margin-left: 15px;
+}
+
+.search-form__input {
+  width: 400px;
+  padding: 0px 15px;
+  color: rgb(62, 26, 95);
+  margin-right: 15px;
+  font-size: 16px;
+  outline: none;
+  border: 0px;
+  height: 41px;
+}
+
+.SearchForm-button {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background-image: url("https://image.flaticon.com/icons/svg/149/149852.svg");
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  outline: none;
+}

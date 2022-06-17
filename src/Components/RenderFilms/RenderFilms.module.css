@@ -1,0 +1,13 @@
+.film {
+  text-decoration: none;
+  color: rgb(23, 58, 111);
+  display: block;
+}
+
+.film:visited {
+  exposed: film;
+}
+
+.film:hover {
+  color: blue;
+}

@@ -8,15 +8,15 @@ function HomeView({ setFinalFilms }) {
   const [status, setStatus] = useState("idle");
   useEffect(() => {
     setStatus("pending");
-    fetchFilms.fetchFilms().then((fetchResponse) => {
-      if (fetchResponse.data.results.length > 0) {
-        setFilms(fetchResponse.data.results);
+    fetchFilms.fetchFilms().then(({ data }) => {
+      if (data.results.length > 0) {
+        setFilms(data.results);
         setStatus("resolved");
-        setFinalFilms(fetchResponse.data.results);
+        setFinalFilms(data.results);
       } else {
         setStatus("rejected");
       }
-      console.log(fetchResponse.data.results);
+      console.log(data.results);
     });
   }, []);
   if (status === "resolved") {
