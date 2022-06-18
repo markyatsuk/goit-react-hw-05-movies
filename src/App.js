@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<HomeView setFinalFilms={setFilms} />}></Route>
         <Route path="/movies" element={<MoviesView />}></Route>
         <Route
-          path="/movies/:id"
+          path="/movies/:id/*"
           element={<CurrentMovieView finalFilms={finalFilms} />}
         ></Route>
         <Route path="*" element={<PageNotFoud />}></Route>

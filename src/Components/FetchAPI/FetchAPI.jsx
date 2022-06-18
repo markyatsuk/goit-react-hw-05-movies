@@ -30,6 +30,20 @@ class FetchApi {
     return fetchResponseByName;
   }
 
+  async fetchCastById(id) {
+    const fetchCastById = await axios.get(
+      `${this.BASE_URL}/3/movie/${id}/credits${this.KEY}`
+    );
+    return fetchCastById;
+  }
+
+  async fetchReviewById(id) {
+    const fetchReviewById = await axios.get(
+      `${this.BASE_URL}/3/movie/${id}/reviews${this.KEY}`
+    );
+    return fetchReviewById;
+  }
+
   get query() {
     return this.searchQuery;
   }

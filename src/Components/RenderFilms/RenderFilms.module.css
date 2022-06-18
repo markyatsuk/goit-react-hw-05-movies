@@ -11,3 +11,39 @@
 .film:hover {
   color: blue;
 }
+
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0 5px;
+}
+
+.castItem {
+  flex-basis: calc((100% - 140px) / 7);
+  margin-bottom: 20px;
+  border: 1px black solid;
+}
+
+.castItem:not(:nth-child(7n)) {
+  margin-right: 20px;
+}
+
+.castPhoto {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.castImg {
+  width: 100%;
+  min-height: 308px;
+  display: block;
+}
+
+.castInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
