@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ImSearch } from "react-icons/im";
 import { FetchApi } from "../FetchAPI/FetchAPI";
 import { RenderFilmsByName } from "../RenderFilms/RenderFilms";
 const fetchFilms = new FetchApi();
 
-function MoviesView() {
+export default function MoviesView() {
+  const params = useParams();
   const navigate = useNavigate();
   const [value, setValue] = useState("");
   const [filmsFound, setFilmsFound] = useState(null);
@@ -26,6 +27,7 @@ function MoviesView() {
       }
       console.log(data.results);
     });
+    console.log(params);
   }
   return (
     <>
@@ -47,4 +49,3 @@ function MoviesView() {
     </>
   );
 }
-export { MoviesView };

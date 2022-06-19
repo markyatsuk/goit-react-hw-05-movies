@@ -2,7 +2,7 @@ import { FetchApi } from "../FetchAPI/FetchAPI";
 import { useEffect, useState } from "react";
 import { RenderReviews } from "../RenderFilms/RenderReviews";
 const fetchAPI = new FetchApi();
-function Review({ id }) {
+export default function Review({ id }) {
   const [reviews, setReviews] = useState(null);
   useEffect(() => {
     fetchAPI.fetchReviewById(id).then((response) => {
@@ -18,4 +18,3 @@ function Review({ id }) {
     }
   }
 }
-export { Review };

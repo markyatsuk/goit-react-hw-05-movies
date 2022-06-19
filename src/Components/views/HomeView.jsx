@@ -3,7 +3,7 @@ import { FetchApi } from "../FetchAPI/FetchAPI";
 import { RenderFilms } from "../RenderFilms/RenderFilms";
 const fetchFilms = new FetchApi();
 
-function HomeView({ setFinalFilms }) {
+export default function HomeView({ setFinalFilms }) {
   const [films, setFilms] = useState(null);
   const [status, setStatus] = useState("idle");
   useEffect(() => {
@@ -23,5 +23,3 @@ function HomeView({ setFinalFilms }) {
     return <RenderFilms films={films} />;
   }
 }
-
-export { HomeView };
