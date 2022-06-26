@@ -21,9 +21,14 @@ const PageNotFoud = lazy(() =>
 
 function App() {
   const [finalFilms, setFinalFilms] = useState(null);
+  const [searchValue, setSearchValue] = useState("");
+  function handleSearchValue(value) {
+    setSearchValue(value);
+  }
   function setFilms(films) {
     setFinalFilms(films);
   }
+
   return (
     <div>
       <Navigation />
@@ -31,9 +36,14 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<HomeView setFinalFilms={setFilms} />}
+            element={
+              <HomeView setFinalFilms={setFilms} searchValue={searchValue} />
+            }
           ></Route>
-          <Route path="/movies" element={<MoviesView />}></Route>
+          <Route
+            path="/movies"
+            element={<MoviesView handleSearchValue={handleSearchValue} />}
+          ></Route>
           <Route
             path="/movies/:id/*"
             element={<CurrentMovieView finalFilms={finalFilms} />}

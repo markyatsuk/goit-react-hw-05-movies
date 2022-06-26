@@ -11,7 +11,7 @@ class FetchApi {
     const fetchResponse = await axios.get(
       `${this.BASE_URL}/3/movie/popular${this.KEY}`
     );
-    console.log(fetchResponse);
+
     return fetchResponse;
   }
 
@@ -19,7 +19,6 @@ class FetchApi {
     const fetchResponseById = await axios.get(
       `${this.URL_BY_ID}/3/movie/${id}${this.KEY}`
     );
-    console.log(id);
     return fetchResponseById;
   }
 

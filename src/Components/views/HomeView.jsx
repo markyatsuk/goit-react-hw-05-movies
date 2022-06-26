@@ -16,7 +16,6 @@ export default function HomeView({ setFinalFilms }) {
       } else {
         setStatus("rejected");
       }
-      console.log(data.results);
     });
   }, []);
   if (status === "resolved") {
