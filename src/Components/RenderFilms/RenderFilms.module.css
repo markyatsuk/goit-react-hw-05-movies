@@ -10,6 +10,7 @@
 
 .film:hover {
   color: blue;
+  transform: scale(1.005);
 }
 
 .castList {

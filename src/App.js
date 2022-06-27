@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { useState, lazy, Suspense } from "react";
 import { Navigation } from "./Components/Navigation/Navigation.jsx";
+import { Loader } from "./Components/Loader/Loader.jsx";
 
 const HomeView = lazy(() =>
   import("./Components/views/HomeView.jsx" /* webpackChunkName: home-view*/)
@@ -20,34 +21,33 @@ const PageNotFoud = lazy(() =>
 );
 
 function App() {
-  const [finalFilms, setFinalFilms] = useState(null);
   const [searchValue, setSearchValue] = useState("");
   function handleSearchValue(value) {
     setSearchValue(value);
   }
-  function setFilms(films) {
-    setFinalFilms(films);
+  function checkValue() {
+    return searchValue;
   }
 
   return (
     <div>
       <Navigation />
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route
             path="/"
-            element={
-              <HomeView setFinalFilms={setFilms} searchValue={searchValue} />
-            }
+            element={<HomeView searchValue={searchValue} />}
           ></Route>
           <Route
             path="/movies"
-            element={<MoviesView handleSearchValue={handleSearchValue} />}
+            element={
+              <MoviesView
+                handleSearchValue={handleSearchValue}
+                checkValue={checkValue}
+              />
+            }
           ></Route>
-          <Route
-            path="/movies/:id/*"
-            element={<CurrentMovieView finalFilms={finalFilms} />}
-          ></Route>
+          <Route path="/movies/:id/*" element={<CurrentMovieView />}></Route>
           <Route path="*" element={<PageNotFoud />}></Route>
         </Routes>
       </Suspense>

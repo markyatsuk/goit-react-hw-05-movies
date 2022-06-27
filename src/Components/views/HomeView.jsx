@@ -12,13 +12,17 @@ export default function HomeView({ setFinalFilms }) {
       if (data.results.length > 0) {
         setFilms(data.results);
         setStatus("resolved");
-        setFinalFilms(data.results);
       } else {
         setStatus("rejected");
       }
     });
   }, []);
   if (status === "resolved") {
-    return <RenderFilms films={films} />;
+    return (
+      <>
+        <h1>Popular Films</h1>
+        <RenderFilms films={films} />
+      </>
+    );
   }
 }

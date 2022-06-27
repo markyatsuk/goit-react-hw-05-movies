@@ -7,3 +7,9 @@
   min-width: 90px;
   margin-bottom: 15px;
 }
+
+.btn:hover {
+  background-color: rgb(135, 121, 219);
+  color: black;
+  transform: scale(1.1);
+}

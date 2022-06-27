@@ -9,7 +9,7 @@ export default function Review({ id }) {
       setReviews(response.data.results);
     });
   }, [id]);
-  console.log(reviews);
+
   if (reviews) {
     if (reviews.length === 0) {
       return <h2>No review for this film </h2>;

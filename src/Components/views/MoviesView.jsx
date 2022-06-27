@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { ImSearch } from "react-icons/im";
 import { FetchApi } from "../FetchAPI/FetchAPI";
 import { RenderFilmsByName } from "../RenderFilms/RenderFilms";
+import Notiflix from "notiflix";
 const fetchFilms = new FetchApi();
 
 export default function MoviesView({ handleSearchValue }) {
@@ -11,29 +12,34 @@ export default function MoviesView({ handleSearchValue }) {
   const [value, setValue] = useState("");
   const [filmsFound, setFilmsFound] = useState(null);
   const [status, setStatus] = useState("idle");
+
   function handleChange(e) {
-    setValue(e.currentTarget.value.toLowerCase());
+    setValue(e.currentTarget.value.toLowerCase().trim());
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!value.trim()) {
+      Notiflix.Notify.warning("Enter a correct requeest");
+      return;
+    }
+
     handleSearchValue(value);
-    fetchFilms.query = value;
+
+    fetchFilms.query = value.trim();
     fetchFilms.fetchMoviesByName().then(({ data }) => {
       if (data.results.length > 0) {
         setFilmsFound(data.results);
         setStatus("resolved");
-
         navigate(`?query=${value}`);
       }
-      console.log(data.results);
     });
-    console.log(location);
   }
 
   useEffect(() => {
     if (location.search && !filmsFound) {
-      const previousSearch = location.search.slice(7);
+      const previousSearch = new URLSearchParams(location.search).get("query");
+      setValue(previousSearch);
       fetchFilms.query = previousSearch;
       fetchFilms.fetchMoviesByName().then(({ data }) => {
         if (data.results.length > 0) {
