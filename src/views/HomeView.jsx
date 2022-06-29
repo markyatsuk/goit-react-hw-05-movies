@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { FetchApi } from "../FetchAPI/FetchAPI";
-import { RenderFilms } from "../RenderFilms/RenderFilms";
+import { FetchApi } from "../services/FetchAPI";
+import { RenderFilms } from "../Components/RenderFilms/RenderFilms";
 const fetchFilms = new FetchApi();
 
 export default function HomeView({ setFinalFilms }) {

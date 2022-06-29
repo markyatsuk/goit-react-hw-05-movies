@@ -1,6 +1,6 @@
-import { FetchApi } from "../FetchAPI/FetchAPI";
+import { FetchApi } from "../services/FetchAPI";
 import { useEffect, useState } from "react";
-import { RenderReviews } from "../RenderFilms/RenderReviews";
+import { RenderReviews } from "../Components/RenderFilms/RenderReviews";
 const fetchAPI = new FetchApi();
 export default function Review({ id }) {
   const [reviews, setReviews] = useState(null);

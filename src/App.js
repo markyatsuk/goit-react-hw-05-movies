@@ -4,20 +4,18 @@ import { Navigation } from "./Components/Navigation/Navigation.jsx";
 import { Loader } from "./Components/Loader/Loader.jsx";
 
 const HomeView = lazy(() =>
-  import("./Components/views/HomeView.jsx" /* webpackChunkName: home-view*/)
+  import("./views/HomeView.jsx" /* webpackChunkName: home-view*/)
 );
 const MoviesView = lazy(() =>
-  import("./Components/views/MoviesView.jsx" /* webpackChunkName: movies-view*/)
+  import("./views/MoviesView.jsx" /* webpackChunkName: movies-view*/)
 );
 const CurrentMovieView = lazy(() =>
   import(
-    "./Components/views/CurrentMovieView.jsx" /* webpackChunkName: cuurent-movie-view*/
+    "./views/CurrentMovieView.jsx" /* webpackChunkName: cuurent-movie-view*/
   )
 );
 const PageNotFoud = lazy(() =>
-  import(
-    "./Components/views/PageNotFound.jsx" /* webpackChunkName: page-not-found-view*/
-  )
+  import("./views/PageNotFound.jsx" /* webpackChunkName: page-not-found-view*/)
 );
 
 function App() {

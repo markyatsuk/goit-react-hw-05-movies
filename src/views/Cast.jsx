@@ -1,6 +1,6 @@
-import { FetchApi } from "../FetchAPI/FetchAPI";
+import { FetchApi } from "../services/FetchAPI";
 import { useEffect, useState } from "react";
-import { RenderCast } from "../RenderFilms/RenderCast";
+import { RenderCast } from "../Components/RenderFilms/RenderCast";
 const fetchAPI = new FetchApi();
 export default function Cast({ id }) {
   const [cast, setCast] = useState(null);

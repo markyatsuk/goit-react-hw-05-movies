@@ -1,9 +1,9 @@
 import { useParams, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { FetchApi } from "../FetchAPI/FetchAPI";
-import { BackButton } from "../Button/Button";
-import { Loader } from "../Loader/Loader";
+import { FetchApi } from "../services/FetchAPI";
+import { BackButton } from "../Components/Button/Button";
+import { Loader } from "../Components/Loader/Loader";
 const fetchFilms = new FetchApi();
 const BASE_POSTER_URL = "https://image.tmdb.org/t/p/w500/";
 
@@ -52,12 +52,12 @@ export default function CurrentMovieView() {
             <p>Additional information</p>
             <ul>
               <li>
-                <Link to={"cast"} state={location.state} className="addInfo">
+                <Link to="cast" state={location.state} className="addInfo">
                   Cast
                 </Link>
               </li>
               <li>
-                <Link to={"review"} state={location.state} className="addInfo">
+                <Link to="review" state={location.state} className="addInfo">
                   Review
                 </Link>
               </li>

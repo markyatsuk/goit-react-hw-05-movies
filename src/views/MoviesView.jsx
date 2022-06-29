@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ImSearch } from "react-icons/im";
-import { FetchApi } from "../FetchAPI/FetchAPI";
-import { RenderFilmsByName } from "../RenderFilms/RenderFilms";
+import { FetchApi } from "../services/FetchAPI";
+import { RenderFilmsByName } from "../Components/RenderFilms/RenderFilms";
 import Notiflix from "notiflix";
 const fetchFilms = new FetchApi();
 
